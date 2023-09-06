@@ -78,7 +78,7 @@ namespace BoynerCase.Controllers
                 {
                     return Ok(product);
                 }
-                return NotFound("Ürün bulunamadı");
+                return NotFound("There is no product with that id");
             }
             catch (Exception ex)
             {
@@ -122,7 +122,7 @@ namespace BoynerCase.Controllers
                 Urun eskiUrun = await _dbcontext.Uruns.FindAsync(id);
                 if (eskiUrun == null)
                 {
-                    return NotFound("Ürün bulunamadı");
+                    return NotFound("There is no product with given id");
                 }
 
                 eskiUrun.UrunIsmi = guncelUrun.UrunIsmi;
@@ -132,7 +132,7 @@ namespace BoynerCase.Controllers
                 _dbcontext.Uruns.Update(eskiUrun);
                 await _dbcontext.SaveChangesAsync();
 
-                return Ok("Ürün başarıyla güncellendi");
+                return Ok("Product updated successfully");
             }
             catch (Exception ex)
             {
@@ -151,9 +151,9 @@ namespace BoynerCase.Controllers
                 {
                     _dbcontext.Uruns.Remove(product);
                     await _dbcontext.SaveChangesAsync();
-                    return Ok("Ürün başarıyla silindi");
+                    return Ok("Product deleted successfully");
                 }
-                return NotFound("Ürün bulunamadı");
+                return NotFound("There is no product with that id");
             }
             catch (Exception ex)
             {
