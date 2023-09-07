@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using BoynerCase.Models;
 using Microsoft.EntityFrameworkCore;
+using AutoMapper;
 
 namespace BoynerCase.Controllers
 {
@@ -11,9 +12,12 @@ namespace BoynerCase.Controllers
     {
 
         public readonly UrunKategoriDbContext _dbcontext;
-        public UrunController(UrunKategoriDbContext _context)
+        private readonly IMapper _mapper;
+
+        public UrunController(UrunKategoriDbContext _context, IMapper mapper)
         {
             _dbcontext = _context;
+            _mapper = mapper;
         }
 
         [HttpGet]
@@ -23,9 +27,10 @@ namespace BoynerCase.Controllers
             try
             {
                 List<Urun> listProducts = _dbcontext.Uruns.ToList();
-                if (listProducts != null)
+                var urunDTOs = _mapper.Map<List<UrunDTO>>(listProducts);
+                if (urunDTOs != null)
                 {
-                    return Ok(listProducts);
+                    return Ok(urunDTOs);
                 }
                 return Ok("There is no product in the db");
             }catch (Exception ex)
