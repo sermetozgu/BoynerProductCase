@@ -13,5 +13,5 @@ public partial class Urun
 
     public int? KategoriId { get; set; }
 
-    public virtual Kategori? Kategori { get; set; }
+    //public virtual Kategori? Kategori { get; set; }
 }

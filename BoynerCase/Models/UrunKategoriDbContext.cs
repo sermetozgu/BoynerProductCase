@@ -54,9 +54,9 @@ public partial class UrunKategoriDbContext : DbContext
                 .IsUnicode(false)
                 .HasColumnName("urun_ismi");
 
-            entity.HasOne(d => d.Kategori).WithMany(p => p.Uruns)
-                .HasForeignKey(d => d.KategoriId)
-                .HasConstraintName("FK__urun__kategori_i__38996AB5");
+            //entity.HasOne(d => d.Kategori).WithMany(p => p.Uruns)
+            //    .HasForeignKey(d => d.KategoriId)
+            //    .HasConstraintName("FK__urun__kategori_i__38996AB5");
         });
 
         OnModelCreatingPartial(modelBuilder);
