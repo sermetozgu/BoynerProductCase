@@ -189,8 +189,12 @@ namespace BoynerCase.Controllers
                     .Take(pageSize)
                     .ToListAsync();
 
+                if (products != null)
+                {
+                    return Ok(products);
+                }
+                return NotFound("There is no product for given category");
 
-                return Ok(products);
             }
             catch (Exception ex)
             {

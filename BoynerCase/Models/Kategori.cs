@@ -9,5 +9,5 @@ public partial class Kategori
 
     public string KategoriIsmi { get; set; } = null!;
 
-    public virtual ICollection<Urun> Uruns { get; set; } = new List<Urun>();
+    //public virtual ICollection<Urun> Uruns { get; set; } = new List<Urun>();
 }
