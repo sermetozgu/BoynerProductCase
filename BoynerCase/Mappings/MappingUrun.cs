@@ -1,5 +1,6 @@
-﻿using AutoMapper;
+﻿/*using AutoMapper;
 using BoynerCase.Models;
+using BoynerCase.Repository;
 
 public class MappingProfile : Profile
 {
@@ -7,4 +8,4 @@ public class MappingProfile : Profile
     {
         CreateMap<Urun, UrunDTO>(); // Urun modelini UrunDTO'ya dönüştürme kuralını belirtin
     }
-}
+}*/
